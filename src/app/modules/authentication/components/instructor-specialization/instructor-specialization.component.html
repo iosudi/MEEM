@@ -1,0 +1,88 @@
+<section class="w-50 mx-auto mt-5">
+  <div class="title mb-5">
+    <h2 class="fw-bold fst-italic">Your specialization?</h2>
+    <p>
+      What's your area of expertise? Let us know your specialization so we can
+      tailor our resources, tips, and support to help you become a video pro in
+      your field.
+    </p>
+  </div>
+  <form [formGroup]="specializationForm" (ngSubmit)="onSubmit()">
+    <h3 class="mb-3">Choose your specialization :</h3>
+    <div
+      class="form-check d-flex align-items-center gap-2 w-100 p-3 mb-3"
+      (click)="selectSpecialization('SoftwareDevelopment')"
+    >
+      <p-radioButton
+        name="specialization"
+        formControlName="specialization"
+        beginner="SoftwareDevelopment"
+        value="SoftwareDevelopment"
+      />
+      <label for="SoftwareDevelopment">Software Development</label>
+    </div>
+    <div
+      class="form-check d-flex align-items-center gap-2 w-100 p-3 mb-3"
+      (click)="selectSpecialization('DigitalMarketing')"
+    >
+      <p-radioButton
+        name="specialization"
+        formControlName="specialization"
+        beginner="DigitalMarketing"
+        value="DigitalMarketing"
+      />
+      <label for="DigitalMarketing">Digital Marketing</label>
+    </div>
+    <div
+      class="form-check d-flex align-items-center gap-2 w-100 p-3 mb-3"
+      (click)="selectSpecialization('Photography_Videography')"
+    >
+      <p-radioButton
+        name="specialization"
+        formControlName="specialization"
+        beginner="Photography_Videography"
+        value="Photography_Videography"
+      />
+      <label for="Photography_Videography">Photography and Videography</label>
+    </div>
+    <div
+      class="form-check d-flex align-items-center gap-2 w-100 p-3 mb-3"
+      (click)="selectSpecialization('LanguageLearning')"
+    >
+      <p-radioButton
+        name="specialization"
+        formControlName="specialization"
+        value="LanguageLearning"
+        beginner="LanguageLearning"
+      />
+      <label for="LanguageLearning">Language Learning</label>
+    </div>
+    <div
+      class="form-check d-flex align-items-center gap-2 w-100 p-3 mb-3"
+      (click)="selectSpecialization('others')"
+    >
+      <p-radioButton
+        name="specialization"
+        formControlName="specialization"
+        value="others"
+        beginner="others"
+      />
+      <label for="others">Others</label>
+    </div>
+
+    <div class="buttons d-flex gap-5">
+      <button
+        class="btn btn-secondary text-uppercase w-100 fw-semibold"
+        routerLink="/instructor_registration"
+      >
+        previous
+      </button>
+      <button
+        class="btn btn-primary text-uppercase w-100 fw-semibold"
+        [disabled]="specializationForm.invalid"
+      >
+        Next
+      </button>
+    </div>
+  </form>
+</section>

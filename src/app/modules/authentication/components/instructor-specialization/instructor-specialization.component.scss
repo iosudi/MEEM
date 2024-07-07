@@ -1,0 +1,13 @@
+section {
+  form {
+    .form-check {
+      cursor: pointer;
+      border: 1px solid var(--primary-color);
+      border-radius: 5px;
+      input {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+}

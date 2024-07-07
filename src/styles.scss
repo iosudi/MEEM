@@ -1,1 +1,143 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --brand-color: #000080;
+  --primary-color: #1e1d19;
+  --secondary-color: #fff;
+  --text-color: #1e1e1e;
+  --body-bg-color: #fffdfd;
+  --background-color: #f1f1f1;
+  --border: #d4d4d4;
+  --poppins: "Poppins", sans-serif;
+}
+
+body {
+  font-family: var(--poppins);
+  color: var(--text-color);
+}
+
+ul {
+  list-style: none;
+}
+
+p,
+label {
+  font-weight: 500 !important;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+button:disabled {
+  cursor: not-allowed !important;
+  pointer-events: all !important;
+}
+
+.btn {
+  border-radius: 8px !important;
+  padding: 6px 20px !important;
+  font-size: 500;
+}
+
+.btn-primary {
+  background-color: var(--primary-color) !important;
+  color: var(--secondary-color) !important;
+  border: 0;
+  letter-spacing: 1px;
+}
+
+.btn-secondary {
+  background-color: var(--background-color) !important;
+  color: var(--primary-color) !important;
+  border: 0;
+  letter-spacing: 1px;
+}
+
+.form-control {
+  &:focus {
+    box-shadow: none;
+  }
+
+  &.is-invalid {
+    border: 1px solid #bb2124 !important;
+    animation: shake 0.7s;
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  10% {
+    transform: translateX(-5px);
+  }
+  20% {
+    transform: translateX(5px);
+  }
+  30% {
+    transform: translateX(-5px);
+  }
+  40% {
+    transform: translateX(5px);
+  }
+  50% {
+    transform: translateX(-5px);
+  }
+  60% {
+    transform: translateX(5px);
+  }
+  70% {
+    transform: translateX(-5px);
+  }
+  80% {
+    transform: translateX(5px);
+  }
+  90% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.p-progressbar {
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  .p-progressbar-value {
+    background-color: var(--brand-color);
+  }
+}
+
+.p-progressbar-label {
+  display: none;
+}
+
+.p-checkbox {
+  .p-checkbox-box {
+    width: 20px;
+    height: 20px;
+    &.p-highlight {
+      border-color: var(--brand-color);
+      background: var(--brand-color);
+    }
+  }
+}
+
+.p-radiobutton {
+  .p-radiobutton-box {
+    &.p-highlight {
+      border-color: var(--brand-color);
+      background: var(--brand-color);
+    }
+
+    &:hover {
+      border-color: var(--brand-color);
+    }
+  }
+}

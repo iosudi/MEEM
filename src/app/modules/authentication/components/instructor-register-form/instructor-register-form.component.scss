@@ -1,0 +1,28 @@
+section {
+  h2 {
+    span {
+      color: var(--brand-color);
+    }
+  }
+  form {
+    input {
+      padding: 10px 5px;
+      border-radius: 5px;
+      border: 1px solid var(--border);
+      outline: none;
+      transition: 0.3s;
+
+      &:focus {
+        border: 1px solid var(--brand-color);
+      }
+    }
+    a {
+      color: var(--brand-color);
+      text-decoration: underline;
+    }
+    .btn {
+      transition: 0.3s;
+      padding: 10px 20px !important;
+    }
+  }
+}
