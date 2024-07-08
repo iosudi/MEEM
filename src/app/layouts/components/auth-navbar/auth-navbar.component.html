@@ -1,4 +1,41 @@
-<nav>
+<nav [class.active]="isShown" class="phone-nav p-3">
+  <div class="nav-container position-relative px-3 py-2 rounded-4">
+    <div class="exit-btn d-flex justify-content-center align-items-center">
+      <i (click)="hideNavbar()" class="fa-solid fa-xmark"></i>
+    </div>
+    <div class="controls">
+      <ul class="py-3 px-0 mb-0 border-bottom">
+        <li class="mb-3"><a class="fw-semibold">Log in</a></li>
+        <li class="mb-3"><a class="fw-semibold">Sign up</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-links">
+      <ul class="py-3 px-0 mb-0 border-bottom">
+        <li class="mb-3"><a class="fw-semibold">Home</a></li>
+        <li class="mb-3"><a class="fw-semibold">Teacher</a></li>
+        <li class="mb-3"><a class="fw-semibold">Courses</a></li>
+        <li class="mb-3"><a class="fw-semibold">Blog</a></li>
+        <li class="mb-3"><a class="fw-semibold">Contact us</a></li>
+        <li class="mb-3"><a class="fw-semibold">About us</a></li>
+      </ul>
+    </div>
+
+    <div class="more-links">
+      <h3 class="h6 fw-bold py-3">More from MEEM</h3>
+      <ul class="pb-3 px-0 mb-0">
+        <li class="mb-3"><a class="fw-semibold">Teach on MEEM</a></li>
+        <li class="mb-3"><a class="fw-semibold">Invite friends</a></li>
+        <li class="mb-3"><a class="fw-semibold">Help and Support</a></li>
+        <li class="mb-3">
+          <button class="btn btn-secondary fw-semibold">English</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<nav class="main-nav">
   <div
     class="navbar mx-auto px-3 my-3 d-flex align-items-center justify-content-around"
   >
@@ -28,10 +65,10 @@
       </ul>
     </div>
 
-    <div class="buttons">
+    <div class="buttons d-flex align-items-center">
       <button class="btn btn-secondary mx-1">Sign up</button>
-      <button class="btn btn-primary mx-1">Log in</button>
       <button class="language btn btn-secondary mx-5 fw-bold">English</button>
+      <i (click)="showNavbar()" class="fa-solid fa-bars"></i>
     </div>
   </div>
 </nav>

@@ -21,6 +21,9 @@ export class InstructorRegisterFormComponent implements OnInit {
     private _Router: Router
   ) {}
 
+  isPasswordVisible: boolean = false;
+  isRePasswordVisible: boolean = false;
+
   instructorRegisterForm: FormGroup = this._FormBuilder.group(
     {
       userName: [
@@ -57,6 +60,10 @@ export class InstructorRegisterFormComponent implements OnInit {
     { validators: [this.confirmPassword] as FormControlOptions }
   );
 
+  ngOnInit(): void {
+    this._AuthenticationService.progressBarValue.next((1 / 3) * 100);
+  }
+
   confirmPassword(group: FormGroup): void {
     let password = group.get('password');
     let rePassword = group.get('confirmPassword');
@@ -84,7 +91,11 @@ export class InstructorRegisterFormComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {
-    this._AuthenticationService.progressBarValue.next((1 / 3) * 100);
+  togglePasswordVisibility(input: string) {
+    if (input === 'password') {
+      this.isPasswordVisible = !this.isPasswordVisible;
+    } else {
+      this.isRePasswordVisible = !this.isRePasswordVisible;
+    }
   }
 }

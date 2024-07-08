@@ -30,7 +30,7 @@ export class InstructorExperienceComponent {
 
   onSubmit(): void {
     if (this.experienceForm.valid) {
-      this._Router.navigate(['/instructor_registration/login']);
+      this._Router.navigate(['/login']);
     } else {
       this.experienceForm.markAllAsTouched();
     }

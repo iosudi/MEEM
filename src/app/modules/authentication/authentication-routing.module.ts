@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { InstructorExperienceComponent } from './components/instructor-experience/instructor-experience.component';
 import { InstructorRegisterFormComponent } from './components/instructor-register-form/instructor-register-form.component';
 import { InstructorSpecializationComponent } from './components/instructor-specialization/instructor-specialization.component';
+import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 import { InstructorRegistrationComponent } from './pages/instructor-registration/instructor-registration.component';
 import { LoginComponent } from './pages/login/login.component';
 import { StudentRegistrationComponent } from './pages/student-registration/student-registration.component';
@@ -46,6 +47,11 @@ const routes: Routes = [
     path: 'student_registration',
     component: StudentRegistrationComponent,
     title: 'Sign up on MEEM | Student Accounts',
+  },
+  {
+    path: 'forgot-password',
+    component: ForgotPasswordComponent,
+    title: 'Forgot password | MEEM',
   },
 ];
 

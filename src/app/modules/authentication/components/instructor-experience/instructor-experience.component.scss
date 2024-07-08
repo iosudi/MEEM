@@ -11,3 +11,12 @@ section {
     }
   }
 }
+
+@media (max-width: 1400px) {
+  section {
+    width: 95% !important;
+    h3 {
+      font-size: 20px;
+    }
+  }
+}

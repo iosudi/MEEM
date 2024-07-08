@@ -6,20 +6,20 @@ Project Description
 
 ### Todo
 
-- [ ] auth responsive  
 - [ ] dialogs and custome toaster for auth  
-- [ ] shake for error  
-- [ ] error styling on inputs  
 - [ ] reset password  
 - [ ] otp  
 - [ ] forgot password  
-- [ ] login  
-- [ ] student register  
-- [ ] tutor register  
 
 ### In Progress
 
 
 ### Done ✓
 
+- [x] auth responsive  
+- [x] shake for error  
+- [x] error styling on inputs  
+- [x] login  
+- [x] tutor register  
+- [x] student register  
 

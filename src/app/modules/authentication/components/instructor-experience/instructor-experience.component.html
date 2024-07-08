@@ -1,4 +1,4 @@
-<section class="w-50 mx-auto mt-5">
+<section class="w-50 mx-auto mt-5 mb-3">
   <div class="title mb-5">
     <h2 class="fw-bold fst-italic">Your Experience?</h2>
     <p>
@@ -8,7 +8,7 @@
     </p>
   </div>
   <form [formGroup]="experienceForm" (ngSubmit)="onSubmit()">
-    <h3 class="mb-3">Choose range of experience :</h3>
+    <h3 class="mb-3">Choose experience range :</h3>
     <div
       class="form-check d-flex align-items-center gap-2 w-100 p-3 mb-3"
       (click)="selectExperience('beginner')"

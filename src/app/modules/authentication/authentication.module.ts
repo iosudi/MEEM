@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CheckboxModule } from 'primeng/checkbox';
-import { FloatLabelModule } from 'primeng/floatlabel';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { AuthenticationRoutingModule } from './authentication-routing.module';
@@ -28,7 +27,6 @@ import { AuthenticationService } from './services/authentication.service';
   providers: [AuthenticationService],
   imports: [
     CommonModule,
-    FloatLabelModule,
     AuthenticationRoutingModule,
     FormsModule,
     ReactiveFormsModule,

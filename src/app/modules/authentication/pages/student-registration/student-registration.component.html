@@ -1,1 +1,456 @@
-<p>student-registration works!</p>
+<section>
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-7 px-5">
+        <div class="image">
+          <img
+            src="../../../../../assets/images/desktop-illustration-step-1-x1.png"
+            alt="desktop-illustration"
+            #responsiveImage
+          />
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div
+          class="register-form-box d-flex align-items-center flex-column justify-content-center h-100 px-5"
+        >
+          <h2 class="text-center fw-bold mb-3">
+            Sign up and start learning with MEEM
+          </h2>
+          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="form_group mb-2">
+              <div
+                class="form-control"
+                [class.is-invalid]="
+                  registerForm.get('userName')?.errors &&
+                  registerForm.get('userName')?.touched
+                "
+              >
+                <input
+                  class="w-100"
+                  type="text"
+                  id="username"
+                  formControlName="userName"
+                  placeholder="User name"
+                  required
+                />
+              </div>
+              <div
+                class="alerts"
+                *ngIf="
+                  registerForm.get('userName')?.errors &&
+                  registerForm.get('userName')?.touched
+                "
+              >
+                <p
+                  class="text-danger fw-normal mb-0"
+                  *ngIf="registerForm.get('userName')?.getError('required')"
+                >
+                  User name is required.
+                </p>
+                <p
+                  class="text-danger fw-normal mb-0"
+                  *ngIf="registerForm.get('userName')?.getError('pattern')"
+                >
+                  - Minimum 3 characters
+                </p>
+                <p
+                  class="text-danger fw-normal mb-0"
+                  *ngIf="registerForm.get('userName')?.getError('pattern')"
+                >
+                  - Can't contain special characters
+                </p>
+              </div>
+            </div>
+
+            <div class="form_group mb-2 d-flex gap-2">
+              <div class="w-100">
+                <div
+                  class="form-control"
+                  [class.is-invalid]="
+                    registerForm.get('firstName')?.errors &&
+                    registerForm.get('firstName')?.touched
+                  "
+                >
+                  <input
+                    [class.is-invalid]="
+                      registerForm.get('firstName')?.errors &&
+                      registerForm.get('firstName')?.touched
+                    "
+                    class="w-100"
+                    type="text"
+                    id="firstName"
+                    formControlName="firstName"
+                    placeholder="First name"
+                    required
+                  />
+                </div>
+                <div
+                  class="alerts"
+                  *ngIf="
+                    registerForm.get('firstName')?.errors &&
+                    registerForm.get('firstName')?.touched
+                  "
+                >
+                  <p
+                    class="text-danger fw-normal mb-0"
+                    *ngIf="registerForm.get('firstName')?.getError('required')"
+                  >
+                    First name is required.
+                  </p>
+                  <p
+                    class="text-danger fw-normal mb-0"
+                    *ngIf="registerForm.get('firstName')?.getError('pattern')"
+                  >
+                    must be at least 3 characters.
+                  </p>
+                </div>
+              </div>
+              <div class="w-100">
+                <div
+                  [class.is-invalid]="
+                    registerForm.get('lastName')?.errors &&
+                    registerForm.get('lastName')?.touched
+                  "
+                  class="form-control"
+                >
+                  <input
+                    class="w-100"
+                    type="text"
+                    id="lastName"
+                    formControlName="lastName"
+                    placeholder="Last name"
+                    required
+                  />
+                </div>
+
+                <div
+                  class="alerts"
+                  *ngIf="
+                    registerForm.get('lastName')?.errors &&
+                    registerForm.get('lastName')?.touched
+                  "
+                >
+                  <p
+                    class="text-danger fw-normal mb-0"
+                    *ngIf="registerForm.get('lastName')?.getError('required')"
+                  >
+                    Last name is required.
+                  </p>
+                  <p
+                    class="text-danger fw-normal mb-0"
+                    *ngIf="registerForm.get('lastName')?.getError('pattern')"
+                  >
+                    must be at least 3 characters.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="form_group mb-2">
+              <div
+                class="form-control"
+                [class.is-invalid]="
+                  registerForm.get('email')?.errors &&
+                  registerForm.get('email')?.touched
+                "
+              >
+                <input
+                  class="w-100"
+                  type="email"
+                  id="email"
+                  formControlName="email"
+                  placeholder="example@example.com"
+                  required
+                />
+              </div>
+
+              <div
+                class="alerts"
+                *ngIf="
+                  registerForm.get('email')?.errors &&
+                  registerForm.get('email')?.touched
+                "
+              >
+                <p
+                  class="text-danger fw-normal mb-0"
+                  *ngIf="registerForm.get('email')?.getError('required')"
+                >
+                  Email address is required.
+                </p>
+                <p
+                  class="text-danger fw-normal mb-0"
+                  *ngIf="registerForm.get('email')?.getError('email')"
+                >
+                  Invalid email format, e.g johndoe@gmail.com
+                </p>
+              </div>
+            </div>
+
+            <div class="form_group mb-2 d-flex gap-2">
+              <div class="w-100">
+                <div
+                  class="form-control d-flex align-items-center"
+                  [class.is-invalid]="
+                    registerForm.get('password')?.errors &&
+                    registerForm.get('password')?.touched
+                  "
+                >
+                  <input
+                    class="w-100"
+                    [type]="isPasswordVisible ? 'text' : 'password'"
+                    id="password"
+                    formControlName="password"
+                    placeholder="Password"
+                    required
+                  />
+                  <i
+                    (click)="togglePasswordVisibility('password')"
+                    class="fa-regular fa-eye"
+                  ></i>
+                </div>
+
+                <div
+                  class="alerts"
+                  *ngIf="
+                    registerForm.get('password')?.errors &&
+                    registerForm.get('password')?.touched
+                  "
+                >
+                  <p
+                    class="text-danger fw-normal mb-0"
+                    *ngIf="registerForm.get('password')?.hasError('required')"
+                  >
+                    Password is required.
+                  </p>
+                  <p
+                    class="text-danger fw-normal mb-0"
+                    *ngIf="registerForm.get('password')?.hasError('minlength')"
+                  >
+                    Too short. Use at least 8 characters
+                  </p>
+                  <p
+                    class="text-danger fw-normal mb-0"
+                    *ngIf="
+                      !registerForm.get('password')?.hasError('minlength') &&
+                      registerForm.get('password')?.hasError('pattern')
+                    "
+                  >
+                    Password should contain letters, number and symbols
+                  </p>
+                </div>
+              </div>
+
+              <div class="w-100">
+                <div
+                  class="form-control d-flex align-items-center"
+                  [class.is-invalid]="
+                    registerForm.get('confirmPassword')?.errors &&
+                    registerForm.get('confirmPassword')?.touched
+                  "
+                >
+                  <input
+                    class="w-100"
+                    [type]="isRePasswordVisible ? 'text' : 'password'"
+                    id="confirmPassword"
+                    formControlName="confirmPassword"
+                    placeholder="Confirm password"
+                    required
+                  />
+                  <i
+                    (click)="togglePasswordVisibility('rePassword')"
+                    class="fa-regular fa-eye"
+                  ></i>
+                </div>
+
+                <div
+                  class="alerts"
+                  *ngIf="
+                    registerForm.get('confirmPassword')?.errors &&
+                    registerForm.get('confirmPassword')?.touched
+                  "
+                >
+                  <p
+                    class="text-danger fw-normal mb-0"
+                    *ngIf="
+                      registerForm.get('confirmPassword')?.hasError('required')
+                    "
+                  >
+                    Confirm password is required.
+                  </p>
+
+                  <p
+                    class="text-danger fw-normal mb-0"
+                    *ngIf="
+                      registerForm.get('confirmPassword')?.hasError('mismatch')
+                    "
+                  >
+                    Passwords do not match.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="form_group mb-2 d-flex gap-2">
+              <div class="w-100">
+                <div
+                  class="form-control"
+                  [class.is-invalid]="
+                    registerForm.get('phone')?.errors &&
+                    registerForm.get('phone')?.touched
+                  "
+                >
+                  <input
+                    class="w-100"
+                    type="text"
+                    id="phone"
+                    formControlName="phone"
+                    placeholder="Phone number"
+                    required
+                  />
+                </div>
+
+                <div
+                  class="alerts"
+                  *ngIf="
+                    registerForm.get('phone')?.errors &&
+                    registerForm.get('phone')?.touched
+                  "
+                >
+                  <p
+                    class="text-danger fw-normal mb-0"
+                    *ngIf="registerForm.get('phone')?.hasError('required')"
+                  >
+                    Phone number is required.
+                  </p>
+
+                  <p
+                    class="text-danger fw-normal mb-0"
+                    *ngIf="registerForm.get('phone')?.hasError('pattern')"
+                  >
+                    Phone number must be Egyptian (e.g 01122559972).
+                  </p>
+                </div>
+              </div>
+              <div class="w-100">
+                <div
+                  class="form-control"
+                  [class.is-invalid]="
+                    registerForm.get('age')?.errors &&
+                    registerForm.get('age')?.touched
+                  "
+                >
+                  <input
+                    class="w-100"
+                    type="text"
+                    id="age"
+                    formControlName="age"
+                    placeholder="Your age"
+                    required
+                  />
+                </div>
+
+                <div
+                  class="alerts"
+                  *ngIf="
+                    registerForm.get('age')?.errors &&
+                    registerForm.get('age')?.touched
+                  "
+                >
+                  <p
+                    class="text-danger fw-normal mb-0"
+                    *ngIf="registerForm.get('age')?.hasError('required')"
+                  >
+                    Age is required.
+                  </p>
+
+                  <p
+                    class="text-danger fw-normal mb-0"
+                    *ngIf="registerForm.get('age')?.hasError('pattern')"
+                  >
+                    Age must be between 20 and 80 years old.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="form_group d-flex align-items-center gap-2 mt-4 mb-2">
+              <p-checkbox value="newsletter" inputId="newsletter" />
+              <label for="newsletter"
+                >Send me emails with tips on how to find Job that fits
+                me.</label
+              >
+            </div>
+
+            <div class="form_group d-flex align-items-center gap-2 mb-3">
+              <p-checkbox
+                value="terms"
+                formControlName="terms"
+                required
+                inputId="terms"
+              />
+              <label for="terms"
+                >Yes, I understand and agree to the
+                <a>MEEM Terms of Service</a> and <a>Privacy Policy</a> .</label
+              >
+            </div>
+
+            <div class="form_group">
+              <button
+                type="submit"
+                [disabled]="!registerForm.valid"
+                class="btn btn-primary text-uppercase w-100 fw-semibold"
+              >
+                Sign up
+              </button>
+            </div>
+          </form>
+
+          <div
+            class="other-options d-flex align-items-center justify-content-center w-100 mt-4 mb-2"
+          >
+            <div class="line w-50"></div>
+            <p class="mb-0 w-100 text-center">Other sign up options</p>
+            <div class="line w-50"></div>
+          </div>
+
+          <div class="social-options d-flex align-items-center gap-4 mt-3 mb-4">
+            <div
+              class="social d-flex align-items-center justify-content-center"
+            >
+              <img
+                src="../../../../../assets/images/icons/search.png"
+                alt="google login"
+              />
+            </div>
+            <div
+              class="social d-flex align-items-center justify-content-center"
+            >
+              <img
+                src="../../../../../assets/images/icons/apple-logo.png"
+                alt="apple login"
+              />
+            </div>
+            <div
+              class="social d-flex align-items-center justify-content-center"
+            >
+              <img
+                src="../../../../../assets/images/icons/microsoft.png"
+                alt="microsoft login"
+              />
+            </div>
+          </div>
+
+          <p class="text-center mb-0 py-3 border-bottom">
+            Already have an account? <a routerLink="/login">Log in</a>
+          </p>
+          <a
+            class="text-center py-3 fw-medium text-decoration-none"
+            routerLink="/instructor_registration"
+            >Be a teacher at MEEM</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

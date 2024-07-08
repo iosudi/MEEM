@@ -11,6 +11,7 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "^16.2.0",
+    "@angular/cdk": "^18.0.6",
     "@angular/common": "^16.2.0",
     "@angular/compiler": "^16.2.0",
     "@angular/core": "^16.2.0",
@@ -19,6 +20,9 @@
     "@angular/platform-browser-dynamic": "^16.2.0",
     "@angular/router": "^16.2.0",
     "@fortawesome/fontawesome-free": "^6.5.2",
+    "@zxcvbn-ts/core": "^3.0.0",
+    "@zxcvbn-ts/language-en": "^3.0.0",
+    "angular-password-strength-meter": "^11.0.0",
     "bootstrap": "^5.3.3",
     "primeng": "^17.18.3",
     "rxjs": "~7.8.0",

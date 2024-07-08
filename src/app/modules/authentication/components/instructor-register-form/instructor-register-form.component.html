@@ -9,18 +9,22 @@
   </p>
   <form [formGroup]="instructorRegisterForm" (ngSubmit)="onSubmit()">
     <div class="form_group mb-2">
-      <input
-        class="w-100 form-control"
+      <div
+        class="form-control"
         [class.is-invalid]="
           instructorRegisterForm.get('userName')?.errors &&
           instructorRegisterForm.get('userName')?.touched
         "
-        type="text"
-        id="username"
-        formControlName="userName"
-        placeholder="Instructor name"
-        required
-      />
+      >
+        <input
+          class="w-100"
+          type="text"
+          id="username"
+          formControlName="userName"
+          placeholder="User name"
+          required
+        />
+      </div>
       <div
         class="alerts"
         *ngIf="
@@ -32,7 +36,7 @@
           class="text-danger fw-normal mb-0"
           *ngIf="instructorRegisterForm.get('userName')?.getError('required')"
         >
-          Instructor name is required.
+          User name is required.
         </p>
         <p
           class="text-danger fw-normal mb-0"
@@ -51,18 +55,26 @@
 
     <div class="form_group mb-2 d-flex gap-2">
       <div class="w-100">
-        <input
+        <div
+          class="form-control"
           [class.is-invalid]="
             instructorRegisterForm.get('firstName')?.errors &&
             instructorRegisterForm.get('firstName')?.touched
           "
-          class="w-100 form-control"
-          type="text"
-          id="firstName"
-          formControlName="firstName"
-          placeholder="First name"
-          required
-        />
+        >
+          <input
+            [class.is-invalid]="
+              instructorRegisterForm.get('firstName')?.errors &&
+              instructorRegisterForm.get('firstName')?.touched
+            "
+            class="w-100"
+            type="text"
+            id="firstName"
+            formControlName="firstName"
+            placeholder="First name"
+            required
+          />
+        </div>
         <div
           class="alerts"
           *ngIf="
@@ -87,18 +99,23 @@
         </div>
       </div>
       <div class="w-100">
-        <input
+        <div
           [class.is-invalid]="
             instructorRegisterForm.get('lastName')?.errors &&
             instructorRegisterForm.get('lastName')?.touched
           "
-          class="w-100 form-control"
-          type="text"
-          id="lastName"
-          formControlName="lastName"
-          placeholder="Last name"
-          required
-        />
+          class="form-control"
+        >
+          <input
+            class="w-100"
+            type="text"
+            id="lastName"
+            formControlName="lastName"
+            placeholder="Last name"
+            required
+          />
+        </div>
+
         <div
           class="alerts"
           *ngIf="
@@ -123,18 +140,22 @@
     </div>
 
     <div class="form_group mb-2">
-      <input
+      <div
+        class="form-control"
         [class.is-invalid]="
           instructorRegisterForm.get('email')?.errors &&
           instructorRegisterForm.get('email')?.touched
         "
-        class="w-100 form-control"
-        type="email"
-        id="email"
-        formControlName="email"
-        placeholder="example@example.com"
-        required
-      />
+      >
+        <input
+          class="w-100"
+          type="email"
+          id="email"
+          formControlName="email"
+          placeholder="example@example.com"
+          required
+        />
+      </div>
 
       <div
         class="alerts"
@@ -160,18 +181,26 @@
 
     <div class="form_group mb-2 d-flex gap-2">
       <div class="w-100">
-        <input
+        <div
+          class="form-control d-flex align-items-center"
           [class.is-invalid]="
             instructorRegisterForm.get('password')?.errors &&
             instructorRegisterForm.get('password')?.touched
           "
-          class="w-100 form-control"
-          type="password"
-          id="password"
-          formControlName="password"
-          placeholder="Password"
-          required
-        />
+        >
+          <input
+            class="w-100"
+            [type]="isPasswordVisible ? 'text' : 'password'"
+            id="password"
+            formControlName="password"
+            placeholder="Password"
+            required
+          />
+          <i
+            (click)="togglePasswordVisibility('password')"
+            class="fa-regular fa-eye"
+          ></i>
+        </div>
 
         <div
           class="alerts"
@@ -207,18 +236,26 @@
       </div>
 
       <div class="w-100">
-        <input
+        <div
+          class="form-control d-flex align-items-center"
           [class.is-invalid]="
             instructorRegisterForm.get('confirmPassword')?.errors &&
             instructorRegisterForm.get('confirmPassword')?.touched
           "
-          class="w-100 form-control"
-          type="password"
-          id="confirmPassword"
-          formControlName="confirmPassword"
-          placeholder="Confirm password"
-          required
-        />
+        >
+          <input
+            class="w-100"
+            [type]="isRePasswordVisible ? 'text' : 'password'"
+            id="confirmPassword"
+            formControlName="confirmPassword"
+            placeholder="Confirm password"
+            required
+          />
+          <i
+            (click)="togglePasswordVisibility('rePassword')"
+            class="fa-regular fa-eye"
+          ></i>
+        </div>
 
         <div
           class="alerts"
@@ -254,18 +291,23 @@
 
     <div class="form_group mb-2 d-flex gap-2">
       <div class="w-100">
-        <input
+        <div
+          class="form-control"
           [class.is-invalid]="
             instructorRegisterForm.get('phone')?.errors &&
             instructorRegisterForm.get('phone')?.touched
           "
-          class="w-100 form-control"
-          type="text"
-          id="phone"
-          formControlName="phone"
-          placeholder="Phone number"
-          required
-        />
+        >
+          <input
+            class="w-100"
+            type="text"
+            id="phone"
+            formControlName="phone"
+            placeholder="Phone number"
+            required
+          />
+        </div>
+
         <div
           class="alerts"
           *ngIf="
@@ -289,18 +331,23 @@
         </div>
       </div>
       <div class="w-100">
-        <input
+        <div
+          class="form-control"
           [class.is-invalid]="
             instructorRegisterForm.get('age')?.errors &&
             instructorRegisterForm.get('age')?.touched
           "
-          class="w-100 form-control"
-          type="text"
-          id="age"
-          formControlName="age"
-          placeholder="Your age"
-          required
-        />
+        >
+          <input
+            class="w-100"
+            type="text"
+            id="age"
+            formControlName="age"
+            placeholder="Your age"
+            required
+          />
+        </div>
+
         <div
           class="alerts"
           *ngIf="
@@ -340,8 +387,8 @@
         inputId="terms"
       />
       <label for="terms"
-        >Yes, I understand and agree to the <a>MEEM Terms of Service</a> ,
-        including the <a>User Agreement</a> and <a>Privacy Policy</a> .</label
+        >Yes, I understand and agree to the <a>MEEM Terms of Service</a> and
+        <a>Privacy Policy</a> .</label
       >
     </div>
 

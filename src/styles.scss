@@ -3,11 +3,13 @@
 :root {
   --brand-color: #000080;
   --primary-color: #1e1d19;
+  --hover-primary-color: #333230;
   --secondary-color: #fff;
   --text-color: #1e1e1e;
   --body-bg-color: #fffdfd;
   --background-color: #f1f1f1;
   --border: #d4d4d4;
+  --paragraph-color: #a5a5a5;
   --poppins: "Poppins", sans-serif;
 }
 
@@ -36,8 +38,12 @@ button:disabled {
   pointer-events: all !important;
 }
 
+a {
+  color: var(--brand-color);
+}
+
 .btn {
-  border-radius: 8px !important;
+  border-radius: 5px !important;
   padding: 6px 20px !important;
   font-size: 500;
 }
@@ -47,6 +53,10 @@ button:disabled {
   color: var(--secondary-color) !important;
   border: 0;
   letter-spacing: 1px;
+
+  &:hover {
+    background: var(--hover-primary-color) !important;
+  }
 }
 
 .btn-secondary {
@@ -57,49 +67,19 @@ button:disabled {
 }
 
 .form-control {
-  &:focus {
+  padding: 10px 5px;
+  border-radius: 5px;
+  border: 1px solid var(--border);
+  outline: none;
+  transition: 0.3s;
+  &:focus-within {
     box-shadow: none;
+    border: 1px solid var(--brand-color);
   }
 
   &.is-invalid {
     border: 1px solid #bb2124 !important;
     animation: shake 0.7s;
-  }
-}
-
-@keyframes shake {
-  0% {
-    transform: translateX(0);
-  }
-  10% {
-    transform: translateX(-5px);
-  }
-  20% {
-    transform: translateX(5px);
-  }
-  30% {
-    transform: translateX(-5px);
-  }
-  40% {
-    transform: translateX(5px);
-  }
-  50% {
-    transform: translateX(-5px);
-  }
-  60% {
-    transform: translateX(5px);
-  }
-  70% {
-    transform: translateX(-5px);
-  }
-  80% {
-    transform: translateX(5px);
-  }
-  90% {
-    transform: translateX(-5px);
-  }
-  100% {
-    transform: translateX(0);
   }
 }
 
@@ -139,5 +119,41 @@ button:disabled {
     &:hover {
       border-color: var(--brand-color);
     }
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  10% {
+    transform: translateX(-5px);
+  }
+  20% {
+    transform: translateX(5px);
+  }
+  30% {
+    transform: translateX(-5px);
+  }
+  40% {
+    transform: translateX(5px);
+  }
+  50% {
+    transform: translateX(-5px);
+  }
+  60% {
+    transform: translateX(5px);
+  }
+  70% {
+    transform: translateX(-5px);
+  }
+  80% {
+    transform: translateX(5px);
+  }
+  90% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
   }
 }
